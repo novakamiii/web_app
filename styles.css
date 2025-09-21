@@ -1,0 +1,14 @@
+@import "dist/styles.css";
+
+#hero-title {
+    font-family: Jetbrains Mono;
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.538);
+}
+
+#hero-subtitle {
+    font-family: Jetbrains Mono;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.538);
+}
