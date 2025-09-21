@@ -84,7 +84,7 @@ function allProducts()
                     <img src=\"{$link}\" class=\"card-img-top\" alt=\"Product {$id}\">
                     <div class=\"card-body\">
                         <h5 class=\"card-title\">{$prod_name}</h5>
-                        <p class=\"card-text\">{$price}</p>
+                        <p class=\"card-text\">\${$price}.00</p>
                         <a href=\"#\" class=\"btn btn-primary w-100\">Add to Cart</a>
                     </div>
                 </div>
