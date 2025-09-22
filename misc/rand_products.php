@@ -9,15 +9,11 @@
     <!-- Bootstrap CSS (comment out to see plain HTML) -->
     <link href="styles.css" rel="stylesheet">
 </head>
-
-<body>
-
-</body>
-
 </html>
 
 <?php
 include "database.php";
+include "cart_handler.php";
 
 $sql1 = "SELECT COUNT(*) as total from products";
 $result = mysqli_query($conn, $sql1);
@@ -30,39 +26,39 @@ $total_amount_products = $row['total'];
 #SHOWS ONLY THREE PRODUCTS
 function featuredPage()
 {
-    global $total_amount_products, $conn;
-    $prod_range = range(1, $total_amount_products);
-    $randkeys = array_rand($prod_range, 3);
+    global $conn;
+    $query = "SELECT * FROM products ORDER BY RAND() LIMIT 3";
+    $result = mysqli_query($conn, $query);
 
     echo "<div class=\"container\">";
     echo "<h2 class=\"text-center mb-4\">Featured Products</h2>";
     echo "<div class=\"row g-4\">";
-    foreach ($randkeys as $key) {
-        $rng = $prod_range[$key];
-        $query = "SELECT * FROM products WHERE id = {$rng}";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
-        $link = "https://picsum.photos/300/200?product" . $rng;
-        if ($row) {
-            $price = $row['stock'];
-            $prod_name = $row['prod_name'];
 
-            echo "<div class=\"col-md-4\">";
-            echo "<div class=\"card h-100\">
-                            <img src=\"{$link}\" class=\"card-img-top\" alt=\"Product 1\">
-                            <div class=\"card-body\">
-                                <h5 class=\"card-title\">{$prod_name}</h5>
-                                <p class=\"card-text\">{$price}.00</p>
-                                <a href=\"#\" class=\"btn btn-primary w-100\">Add to Cart</a>
-                            </div>
-                        </div>";
-            echo "</div>";
-        }
+    while ($row = mysqli_fetch_assoc($result)) {
+        $prod_name = $row['prod_name'];
+        $price = $row['price'];
+        $id = $row['id'];
+        $link = "https://picsum.photos/300/200?product" . $id;
+
+        echo "<div class=\"col-md-4\">";
+        echo "<div class=\"card h-100\">
+                <img src=\"{$link}\" class=\"card-img-top\" alt=\"Product\">
+                <div class=\"card-body\">
+                    <h5 class=\"card-title\">{$prod_name}</h5>
+                    <p class=\"card-text\">{$price}.00</p>
+                    <form action=\"index.php\" method=\"post\">
+                        <input type=\"hidden\" name=\"prod_name\" value=\"{$prod_name}\">
+                        <button type=\"submit\" class=\"btn btn-primary w-100\">Add to Cart</button>
+                    </form>
+                </div>
+              </div>";
+        echo "</div>";
     }
-    echo "</div>";
-    echo "</div>";
+
+    echo "</div></div>";
 }
 
+#ALL PRODUCTS
 function allProducts()
 {
     global $total_amount_products, $conn;
@@ -76,16 +72,19 @@ function allProducts()
 
         if ($row) {
             $id = $row['id'];
-            $price = $row['stock'];
+            $price = $row['price'];
             $prod_name = $row['prod_name'];
 
             echo "<div class=\"col-md-4\">
                 <div class=\"card h-100\">
                     <img src=\"{$link}\" class=\"card-img-top\" alt=\"Product {$id}\">
                     <div class=\"card-body\">
-                        <h5 class=\"card-title\">{$prod_name}</h5>
+                        <h5 class=\"card-title\" name=\"{$prod_name}\">{$prod_name}</h5>
                         <p class=\"card-text\">\${$price}.00</p>
-                        <a href=\"#\" class=\"btn btn-primary w-100\">Add to Cart</a>
+                        <form action=\"products.php\" method=\"post\">
+                            <input type=\"hidden\" name=\"prod_name\" value=\"{$prod_name}\">
+                            <button type=\"submit\" class=\"btn btn-primary w-100\">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
               </div>";

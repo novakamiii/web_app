@@ -33,7 +33,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> 
 
     <!-- HERO -->
     <header class="text-center text-white py-5 bg-dark"

@@ -1,5 +1,6 @@
 <?php
-    include "misc/database.php";
+include "misc/database.php";
+include "misc/cart_handler.php";
 ?>
 
 <!DOCTYPE html>
@@ -59,25 +60,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Example Row -->
-                        <tr>
-                            <td>Sample Product</td>
-                            <td>$20.00</td>
-                            <td>
-                                <input type="number" class="form-control w-50 mx-auto" value="1" min="1">
-                            </td>
-                            <td>$20.00</td>
-                            <td>
-                                <button class="btn btn-danger btn-sm">Remove</button>
-                            </td>
-                        </tr>
+                        <?php
+                        showCart();
+                        ?>
                     </tbody>
                 </table>
             </div>
 
             <!-- Cart Summary -->
             <div class="text-end mt-4">
-                <h4>Total: $20.00</h4>
+                <h4 id="cart-total">Total: $0.00</h4>
                 <button class="btn btn-success">Proceed to Checkout</button>
             </div>
         </div>
@@ -92,6 +84,40 @@
 
 </html>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("table tbody tr");
+        const cartTotalEl = document.getElementById("cart-total");
+
+        function updateCartTotal() {
+            let totalSum = 0;
+            rows.forEach(row => {
+                const priceCell = row.querySelector(".price");
+                const qtyInput = row.querySelector(".qty");
+                const totalCell = row.querySelector(".total");
+                const unitPrice = parseFloat(priceCell.dataset.price);
+
+                const qty = parseInt(qtyInput.value) || 1;
+                const total = unitPrice * qty;
+                totalCell.textContent = `$${total.toFixed(2)}`;
+
+                totalSum += total;
+            });
+
+            cartTotalEl.textContent = `Total: $${totalSum.toFixed(2)}`;
+        }
+
+        // initial update
+        updateCartTotal();
+
+        // update on any quantity change
+        rows.forEach(row => {
+            const qtyInput = row.querySelector(".qty");
+            qtyInput.addEventListener("input", updateCartTotal);
+        });
+    });
+</script>
+
 <?php
-    mysqli_close($conn);
+mysqli_close($conn);
 ?>
