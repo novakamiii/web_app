@@ -44,6 +44,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cart_item'])) {
     }
 }
 
+#Proceed to Checkout
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout']))
+{
+    #$checkout = filter_input(INPUT_POST, 'checkout', FILTER_SANITIZE_SPECIAL_CHARS);
+    $checkout = true;
+    $query = "TRUNCATE TABLE cart";
+    if(mysqli_query($conn, $query) && $checkout)
+    {
+        echo "<script>alert(\"Thank you for shopping with us!\")</script>";
+    }
+    else
+    {
+        echo "<script>Something went wrong!</script>";
+    }
+}
 
 function showCart()
 {

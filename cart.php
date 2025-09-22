@@ -70,7 +70,10 @@ include "misc/cart_handler.php";
             <!-- Cart Summary -->
             <div class="text-end mt-4">
                 <h4 id="cart-total">Total: $0.00</h4>
-                <button class="btn btn-success">Proceed to Checkout</button>
+                <form action="cart.php" method="post">
+                    <input type="hidden" name="checkout" value="checkout">
+                    <button type="submit" class="btn btn-success" > Proceed to Checkout</button>
+                </form>
             </div>
         </div>
     </section>
