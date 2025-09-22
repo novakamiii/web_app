@@ -1,8 +1,8 @@
 <?php
     $db_server = "localhost";
     $db_user = "root";
-    $db_pass = 'root';
-    $db_name = "testphp";
+    $db_pass = 'paulo';
+    $db_name = "testPHP";
     $conn = "";
 
     try {
@@ -10,3 +10,4 @@
     } catch (mysqli_sql_exception) {
         echo "Database is offline! (MariaDB)";
 }
+?>
