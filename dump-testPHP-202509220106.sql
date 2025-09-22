@@ -19,7 +19,7 @@
 --
 -- Table structure for table `products`
 --
-
+USE testphp;
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;

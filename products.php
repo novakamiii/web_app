@@ -22,18 +22,27 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">🛒 Cart</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="products.php">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.php">🛒 Cart</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- PRODUCTS -->
-    <section class="py-5">
+
+    <!-- HERO -->
+    <header class="text-center text-white py-5 bg-dark"
+        style="background:url('https://picsum.photos/1200/400?business') center/cover no-repeat;">
         <div class="container">
-            <h2 class="text-center mb-4">Our Products</h2>
+            <h1 class="display-4" id="hero-title">Products</h1>
+            <p class="lead" id="hero-subtitle">List of all our products for your perusal</p>
+        </div>
+    </header>
+
+    <!-- PRODUCTS -->
+    <section class="fs-3 py-5">
+        <div class="container">
             <?php
                 include "misc/rand_products.php";
                 

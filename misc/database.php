@@ -1,8 +1,8 @@
 <?php
-    $db_server = "127.0.0.1:3306";
+    $db_server = "localhost";
     $db_user = "root";
-    $db_pass = "paulo";
-    $db_name = "testPHP";
+    $db_pass = 'root';
+    $db_name = "testphp";
     $conn = "";
 
     try {
