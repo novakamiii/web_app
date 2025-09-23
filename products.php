@@ -50,7 +50,8 @@
         <div class="container">
             <?php
             include "misc/rand_products.php";
-                allProducts();
+            
+            allProducts();
             ?>
         </div>
     </section>

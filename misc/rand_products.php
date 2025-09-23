@@ -54,7 +54,7 @@ function featuredPage()
                         <p class=\"card-text text-truncate\">{$info}</p>
                         <p class=\"fw-bold mt-auto\">\${$price}</p>
                         <p class=\"text-muted\">Stock:{$stock}</p>
-                        <a href=\"product.php?id={$id} class=\" btn btn-primary w-100 mt-2\">View Details</a>
+                        <a href=\"product.php?id={$id}\" class=\" btn btn-primary w-100 mt-2\">View Details</a>
                     </div>
                 </div>
             </div>";
@@ -68,7 +68,10 @@ function allProducts()
 {
     global $total_amount_products, $conn;
 
+    echo "<div class=\"container\">";
+    echo "<h2 class=\"text-center mb-4\">Featured Products</h2>";
     echo "<div class=\"row g-4\">";
+
     for ($i = 1; $i <= $total_amount_products; $i++) {
         $query = "SELECT * FROM products WHERE id = {$i}";
         $result = mysqli_query($conn, $query);
@@ -94,7 +97,7 @@ function allProducts()
                         <p class=\"card-text text-truncate\">{$info}</p>
                         <p class=\"fw-bold mt-auto\">\${$price}</p>
                         <p class=\"text-muted\">Stock:{$stock}</p>
-                        <a href=\"product.php?id={$id} class=\" btn btn-primary w-100 mt-2\">View Details</a>
+                        <a href=\"product.php?id={$id}\"class=\" btn btn-primary w-100 mt-2\">View Details</a>
                     </div>
                 </div>
             </div>";
