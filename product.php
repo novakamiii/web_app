@@ -1,17 +1,18 @@
 <?php
-    include "misc/database.php";
+include "misc/database.php";
 
-    // Get product ID
-    $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+// Get product ID
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-    // Fetch product
-    $sql = "SELECT id, prod_name, price, stock, info FROM products WHERE id = $id LIMIT 1";
-    $result = mysqli_query($conn, $sql);
-    $product = mysqli_fetch_assoc($result);
+// Fetch product
+$sql = "SELECT id, prod_name, price, stock, info FROM products WHERE id = $id LIMIT 1";
+$result = mysqli_query($conn, $sql);
+$product = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,7 @@
             height: 400px;
             object-fit: cover;
         }
+
         .product-thumb {
             height: 100px;
             object-fit: cover;
@@ -31,6 +33,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
@@ -51,10 +54,10 @@
                 </ul>
             </div>
             <!-- Search Form -->
-                <form class="d-flex" action="search.php" method="GET">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Search products..." aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
+            <form class="d-flex" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" name="search_query" placeholder="Search products..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
@@ -64,9 +67,9 @@
             <div class="row">
                 <!-- Images -->
                 <div class="col-md-6">
-                    <img src="https://picsum.photos/600/400?random=<?php echo $product['id']; ?>" 
-                         alt="<?php echo htmlspecialchars($product['prod_name']); ?>" 
-                         class="product-img-main mb-3">
+                    <img src="https://picsum.photos/600/400?random=<?php echo $product['id']; ?>"
+                        alt="<?php echo htmlspecialchars($product['prod_name']); ?>"
+                        class="product-img-main mb-3">
 
                     <!-- Thumbnail previews -->
                     <div class="d-flex gap-2">
@@ -84,8 +87,8 @@
                     <p><?php echo nl2br(htmlspecialchars($product['info'])); ?></p>
 
                     <div class="d-flex gap-3 mt-3">
-                        <a href="cart.php?action=add&id=<?php echo $product['id']; ?>" class="btn btn-primary btn-lg">Add to Cart</a>
-                        <a href="checkout.php?id=<?php echo $product['id']; ?>" class="btn btn-success btn-lg">Buy Now</a>
+                        <a href="cart.php?action=add&id=<?php echo $product['id']; ?>"
+                            class="btn btn-primary btn-lg">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -120,6 +123,7 @@
 
     <script src="bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
 
 <?php mysqli_close($conn); ?>

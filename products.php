@@ -7,7 +7,7 @@
     <title>E-Shop - Bootstrap</title>
 
     <!-- Bootstrap CSS (comment out to see plain HTML) -->
-<link href="styles.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,10 +29,10 @@
                 </ul>
             </div>
             <!-- Search Form -->
-                <form class="d-flex" action="search.php" method="GET">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Search products..." aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
+            <form class="d-flex" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" name="search_query" placeholder="Search products..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
@@ -49,10 +49,8 @@
     <section class="fs-3 py-5">
         <div class="container">
             <?php
-                include "misc/rand_products.php";
-                
+            include "misc/rand_products.php";
                 allProducts();
-
             ?>
         </div>
     </section>
@@ -67,7 +65,7 @@
 </html>
 
 <?
-    include "misc/database.php";
+include "misc/database.php";
 
-    mysqli_close($conn);
+mysqli_close($conn);
 ?>

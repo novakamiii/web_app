@@ -8,27 +8,62 @@ $total_cart_num = $row2['total'];
 
 
 
-#Add to cart method
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $prod_name = filter_input(INPUT_POST, "prod_name", FILTER_SANITIZE_SPECIAL_CHARS);
+// #Add to cart method
+// if ($_SERVER["REQUEST_METHOD"] === "POST") {
+//     $prod_name = filter_input(INPUT_POST, "prod_name", FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $query = "SELECT * FROM products WHERE prod_name = '$prod_name'";
+//     $query = "SELECT * FROM products WHERE prod_name = '$prod_name'";
+//     $result = mysqli_query($conn, $query);
+
+//     if ($row = mysqli_fetch_assoc($result)) {
+//         $cartItem = $row['prod_name'];
+//         $cartPrice = $row['price'];
+
+//         $query2 = "INSERT INTO cart (`prod_name`, `quantity`, `price`)
+//                    VALUES ('$cartItem', 1, '$cartPrice')";
+
+//         if (mysqli_query($conn, $query2)) {
+//             echo "<script>alert('{$cartItem} added to cart!');</script>";
+//         } else {
+//             echo "<script>alert('Something went wrong!');</script>";
+//         }
+//     }
+// }
+
+if (isset($_GET['action']) && $_GET['action'] === 'add' && isset($_GET['id'])) {
+    $id = intval($_GET['id']); // sanitize input
+
+    // fetch product
+    $query = "SELECT * FROM products WHERE id = $id LIMIT 1";
     $result = mysqli_query($conn, $query);
 
     if ($row = mysqli_fetch_assoc($result)) {
-        $cartItem = $row['prod_name'];
-        $cartPrice = $row['price'];
+        $prod_name = $row['prod_name'];
+        $price = $row['price'];
 
-        $query2 = "INSERT INTO cart (`prod_name`, `quantity`, `price`)
-                   VALUES ('$cartItem', 1, '$cartPrice')";
+        // check if already in cart
+        $checkQuery = "SELECT * FROM cart WHERE prod_name = '$prod_name' LIMIT 1";
+        $checkResult = mysqli_query($conn, $checkQuery);
 
-        if (mysqli_query($conn, $query2)) {
-            echo "<script>alert('{$cartItem} added to cart!');</script>";
+        if (mysqli_num_rows($checkResult) > 0) {
+            // product already in cart → update quantity
+            $updateQuery = "UPDATE cart 
+                            SET quantity = quantity + 1 
+                            WHERE prod_name = '$prod_name'";
+            mysqli_query($conn, $updateQuery);
         } else {
-            echo "<script>alert('Something went wrong!');</script>";
+            // add new item
+            $insertQuery = "INSERT INTO cart (prod_name, quantity, price) 
+                            VALUES ('$prod_name', 1, '$price')";
+            mysqli_query($conn, $insertQuery);
         }
+
+        echo "<script>alert('{$prod_name} added to cart!'); window.location='cart.php';</script>";
+    } else {
+        echo "<script>alert('Product not found.'); window.location='product.php';</script>";
     }
 }
+
 
 # Remove from cart
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cart_item'])) {
@@ -70,10 +105,11 @@ function showCart()
     while ($row = mysqli_fetch_assoc($result)) {
         $prod_name = $row['prod_name'];
         $price = $row['price'];
+        $amount = $row['quantity'];
         echo "<tr>
                 <td>{$prod_name}</td>
                 <td class=\"price\" data-price=\"{$price}\">\${$price}.00</td>
-                <td><input type=\"number\" class=\"form-control w-50 mx-auto qty\" value=\"1\" min=\"1\"></td>
+                <td><input type=\"number\" class=\"form-control w-50 mx-auto qty\" value=\"{$amount}\" min=\"1\"></td>
                 <td class=\"total\">$/{$price}.00</td>
                 <td>
                     <form action=\"cart.php\" method=\"post\">

@@ -1,17 +1,18 @@
 <?php
-    include "misc/database.php";
+include "misc/database.php";
 
-    $search = isset($_GET['q']) ? mysqli_real_escape_string($conn, $_GET['q']) : '';
+$search = isset($_GET['q']) ? mysqli_real_escape_string($conn, $_GET['q']) : '';
 
-    $sql = "SELECT id, prod_name, price, stock, info 
+$sql = "SELECT id, prod_name, price, stock, info 
             FROM products 
             WHERE prod_name LIKE '%$search%' 
             OR info LIKE '%$search%'";
-    $result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +26,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
@@ -44,11 +46,9 @@
                     <li class="nav-item"><a class="nav-link" href="cart.php">🛒 Cart</a></li>
                 </ul>
 
-                <!-- SEARCH BAR -->
+                <!-- Search Form -->
                 <form class="d-flex" action="search.php" method="GET">
-                    <input class="form-control me-2" type="search" name="q" 
-                           value="<?php echo htmlspecialchars($search); ?>" 
-                           placeholder="Search products..." aria-label="Search">
+                    <input class="form-control me-2" type="search" name="search_query" placeholder="Search products..." aria-label="Search">
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
             </div>
@@ -57,35 +57,18 @@
 
     <!-- SEARCH RESULTS -->
     <div class="container my-5">
-        <h2 class="mb-4">Search Results for "<?php echo htmlspecialchars($search); ?>"</h2>
-
+        <?php
+            $search = $_GET['search_query'];
+            echo "<h2 class=\"mb-4\">Search Results for \"{$search}\"</h2>";
+        ?>
         <div class="row">
-            <?php if (mysqli_num_rows($result) > 0): ?>
-                <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <!-- Placeholder product image -->
-                            <img src="https://picsum.photos/400/200?random=<?php echo $row['id']; ?>" 
-                                 class="card-img-top product-img" 
-                                 alt="<?php echo htmlspecialchars($row['prod_name']); ?>">
-
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title"><?php echo htmlspecialchars($row['prod_name']); ?></h5>
-                                <p class="card-text text-truncate"><?php echo htmlspecialchars($row['info']); ?></p>
-                                <p class="fw-bold mt-auto">$<?php echo number_format($row['price'], 2); ?></p>
-                                <p class="text-muted">Stock: <?php echo $row['stock']; ?></p>
-                                <a href="product.php?id=<?php echo $row['id']; ?>" class="btn btn-primary w-100 mt-2">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
-            <?php else: ?>
-                <div class="col-12">
-                    <div class="alert alert-warning text-center">
-                        No products found for "<?php echo htmlspecialchars($search); ?>"
-                    </div>
-                </div>
-            <?php endif; ?>
+            <?php
+                include "misc/search_handler.php";
+                if ($_SERVER["REQUEST_METHOD"] == "GET" && $_GET["search_query"]) 
+                {
+                    search();
+                }
+            ?> 
         </div>
     </div>
 
@@ -96,6 +79,7 @@
 
     <script src="bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
 
 <?php mysqli_close($conn); ?>

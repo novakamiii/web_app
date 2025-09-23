@@ -34,10 +34,10 @@ include "misc/cart_handler.php";
                 </ul>
             </div>
             <!-- Search Form -->
-                <form class="d-flex" action="search.php" method="GET">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Search products..." aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
+            <form class="d-flex" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" name="search_query" placeholder="Search products..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
@@ -77,7 +77,7 @@ include "misc/cart_handler.php";
                 <h4 id="cart-total">Total: $0.00</h4>
                 <form action="cart.php" method="post">
                     <input type="hidden" name="checkout" value="checkout">
-                    <button type="submit" class="btn btn-success" > Proceed to Checkout</button>
+                    <button type="submit" class="btn btn-success"> Proceed to Checkout</button>
                 </form>
             </div>
         </div>
