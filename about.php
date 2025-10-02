@@ -96,7 +96,7 @@ include "misc/database.php";
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4">
                     <div class="card h-100 text-center shadow-sm">
-                        <img src="https://scontent.fmnl3-1.fna.fbcdn.net/v/t39.30808-1/469444377_3926434597636182_6161249111952600436_n.jpg?stp=c0.92.1536.1536a_dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeFkc4ODHzBXbAFMSRMxkOuVKkjZHl6LGVMqSNkeXosZU7k6ObRp7_WgTHIdtGxUZQt9HxL8QL_YckMWl8Hd9K-Q&_nc_ohc=KtArRBCRjlsQ7kNvwEqB16S&_nc_oc=AdkPoYyD2Me-Q_D_msnNCUT52qrmqU_OwJjepzlFEzxr1qCXCvgrjsEkxFiYsA22Zjo&_nc_zt=24&_nc_ht=scontent.fmnl3-1.fna&_nc_gid=9t5FrETYrM7Xww0vwoad2A&oh=00_Afbwz1mqZlINQPN3ILo5hbr9syTGguRN8MKYxLaPDeNhEg&oe=68D690C6" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
+                        <img src="https://scontent.fmnl33-6.fna.fbcdn.net/v/t39.30808-1/469444377_3926434597636182_6161249111952600436_n.jpg?stp=c0.92.1536.1536a_dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeH2uFv901h7oCNIK5vKhXMyKkjZHl6LGVMqSNkeXosZU9D8mRlAeS8GzdzPJFUlvBJMdvZbXd4sZyzlvio_S6o6&_nc_ohc=8pJTeSCPCucQ7kNvwFjN8fa&_nc_oc=AdlL9isS8r0hwIR1ELoDqvYplS-k5tMaw7PNVa4wo6b5rg8yZ4mFWGfa6BJaKhIqh88&_nc_zt=24&_nc_ht=scontent.fmnl33-6.fna&_nc_gid=3RiNylo92Sl-_Tyq2_n-rw&oh=00_AfZxiBYaQo9gS8aIBUBX60tK7zn_NpPDWO-xT5g1M3_mIQ&oe=68E4A0C6" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
                         <div class="card-body">
                             <h5 class="card-title">Paulo Neil Sevilla</h5>
                             <p class="card-text">Co-founder</p>
@@ -106,7 +106,7 @@ include "misc/database.php";
 
                 <div class="col-md-4">
                     <div class="card h-100 text-center shadow-sm">
-                        <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t39.30808-6/504933616_4108181266122725_3134125291306324547_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHIBL8CtOAi9dVgCQtB9x7P5zf8aPoi1CjnN_xo-iLUKAFQrCyxjt0BLzg5WHUa3SyfcYJit5qhnUsvCuCHGem3&_nc_ohc=hPBsUN0HiiUQ7kNvwExIT9k&_nc_oc=AdlSccF0AQqfKvFs9817aPOOdgta2Ws8O6TRYp4YxABjZudjs_mPirvDLCqVJzHmn0MYQTiYVh7ztmK8OKqJxpD9&_nc_zt=23&_nc_ht=scontent.fmnl34-1.fna&_nc_gid=pMv9Babvci4qn64-1XMROg&oh=00_Afbvcn2asOdeZRlG7y4S9kJemQhSs4onoQgdtjtpdoM5Mg&oe=68D6A447" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
+                        <img src="https://scontent.fmnl33-4.fna.fbcdn.net/v/t39.30808-6/504933616_4108181266122725_3134125291306324547_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGpIEtukLceaUIDhAcouY1A5zf8aPoi1CjnN_xo-iLUKBjqHrERdj0Skid0DWzx4WVhXXjExIfnBMmFcEwmGlWn&_nc_ohc=Ye28uOShC9UQ7kNvwEgayzo&_nc_oc=Admv6-bNvvnHAcjpd4YbtpCW1oeSHkyvXLnS1y03Zqw4srjFro69Lg3vHCKn-veobA0&_nc_zt=23&_nc_ht=scontent.fmnl33-4.fna&_nc_gid=kfHngUXcISKkim2AHBpq0Q&oh=00_AfYw32zyc9YQmGjiRP-HnbGfnQNZaQcc-k-ytZ-dcYU_fA&oe=68E4B447" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
                         <div class="card-body">
                             <h5 class="card-title">Danzel Bordeos</h5>
                             <p class="card-text">Co-founder</p>
