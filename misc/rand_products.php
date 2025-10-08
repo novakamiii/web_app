@@ -40,12 +40,12 @@ function featuredPage()
         $id = $row['id'];
         $info = $row['info'];
         $stock = $row['stock'];
-        $link = "https://picsum.photos/300/200?product" . $id;
+        $img = $row['img'];
 
         echo "<div class=\"col-md-4 mb-4\">
                 <div class=\"card h-100\">
                     <!-- Placeholder product image -->
-                    <img src=\"{$link}\"
+                    <img src=\"img/products/{$img}.jpg\"
                         class=\"card-img-top product-img\"
                         alt=\"{$prod_name}\">
 
@@ -76,7 +76,6 @@ function allProducts()
         $query = "SELECT * FROM products WHERE id = {$i}";
         $result = mysqli_query($conn, $query);
         $row = mysqli_fetch_assoc($result);
-        $link = "https://picsum.photos/300/200?product" . $i;
 
         if ($row) {
             $id = $row['id'];
@@ -84,11 +83,12 @@ function allProducts()
             $prod_name = $row['prod_name'];
             $info = $row['info'];
             $stock = $row['stock'];
+            $img = $row['img'];
 
             echo "<div class=\"col-md-4 mb-4\">
                 <div class=\"card h-100\">
                     <!-- Placeholder product image -->
-                    <img src=\"{$link}\"
+                    <img src=\"img/products/{$img}.jpg\"
                         class=\"card-img-top product-img\"
                         alt=\"{$prod_name}\">
 

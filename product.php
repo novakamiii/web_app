@@ -1,13 +1,14 @@
 <?php
 include "misc/database.php";
+include "misc/prod_page.php";
 
-// Get product ID
-$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+// // Get product ID
+// $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-// Fetch product
-$sql = "SELECT id, prod_name, price, stock, info FROM products WHERE id = $id LIMIT 1";
-$result = mysqli_query($conn, $sql);
-$product = mysqli_fetch_assoc($result);
+// // Fetch product
+// $sql = "SELECT id, prod_name, price, stock, info FROM products WHERE id = $id LIMIT 1";
+// $result = mysqli_query($conn, $sql);
+// $product = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ $product = mysqli_fetch_assoc($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($product['prod_name']); ?> - E-Shop</title>
+    <title>E-Shop</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
@@ -49,7 +50,10 @@ $product = mysqli_fetch_assoc($result);
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.php">E-Shop</a>
+            <a class="navbar-brand" href="index.php">
+                <img src="img/artic.png" alt="Logo" width="30" class="d-inline-block align-text-top" id="logoimg">
+                Arctic
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -73,57 +77,9 @@ $product = mysqli_fetch_assoc($result);
 
     <!-- PRODUCT DETAIL -->
     <div class="container my-5">
-        <?php if ($product): ?>
-            <div class="row">
-                <!-- Images -->
-                <div class="col-md-6">
-                    <img src="https://picsum.photos/600/400?random=<?php echo $product['id']; ?>"
-                        alt="<?php echo htmlspecialchars($product['prod_name']); ?>"
-                        class="product-img-main mb-3">
-
-                    <!-- Thumbnail previews -->
-                    <div class="d-flex gap-2">
-                        <img src="https://picsum.photos/200/100?random=<?php echo $product['id'] + 1; ?>" class="product-thumb">
-                        <img src="https://picsum.photos/200/100?random=<?php echo $product['id'] + 2; ?>" class="product-thumb">
-                        <img src="https://picsum.photos/200/100?random=<?php echo $product['id'] + 3; ?>" class="product-thumb">
-                    </div>
-                </div>
-
-                <!-- Info -->
-                <div class="col-md-6">
-                    <h1><?php echo htmlspecialchars($product['prod_name']); ?></h1>
-                    <p class="fs-4 fw-bold text-success">$<?php echo number_format($product['price'], 2); ?></p>
-                    <p class="text-muted">Stock: <?php echo $product['stock']; ?></p>
-                    <p><?php echo nl2br(htmlspecialchars($product['info'])); ?></p>
-
-                    <div class="d-flex gap-3 mt-3">
-                        <a href="cart.php?action=add&id=<?php echo $product['id']; ?>"
-                            class="btn btn-primary btn-lg">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Reviews -->
-            <div class="mt-5">
-                <h3>Customer Reviews</h3>
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h5 class="card-title">John Doe</h5>
-                        <p class="card-text">⭐⭐⭐⭐⭐</p>
-                        <p class="card-text">Excellent quality! Very satisfied with my purchase.</p>
-                    </div>
-                </div>
-                <div class="card my-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Jane Smith</h5>
-                        <p class="card-text">⭐⭐⭐⭐</p>
-                        <p class="card-text">Great value for money. Would recommend!</p>
-                    </div>
-                </div>
-            </div>
-        <?php else: ?>
-            <div class="alert alert-danger text-center">Product not found.</div>
-        <?php endif; ?>
+        <?php
+            echo prodDetails();
+        ?>
     </div>
     <!-- LOGIN MODAL -->
     <div id="loginModal" class="modal-overlay">

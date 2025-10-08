@@ -25,11 +25,13 @@
 </head>
 
 <body>
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.php">E-Shop</a>
+            <a class="navbar-brand" href="index.php">
+                <img src="img/artic.png" alt="Logo" width="30" class="d-inline-block align-text-top" id="logoimg">
+                Arctic
+            </a>
             <button class="navbar-toggler" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,8 +57,8 @@
     <header class="text-center text-white py-5 bg-dark"
         style="background:url('https://picsum.photos/1200/400?business') center/cover no-repeat;">
         <div class="container">
-            <h1 class="display-4" id="hero-title">Welcome to E-Shop</h1>
-            <p class="lead" id="hero-subtitle">Discover premium products for your business and lifestyle</p>
+            <h1 class="display-4" id="hero-title">Arctic Wind Solutions</h1>
+            <p class="lead" id="hero-subtitle">Experience the Arctic Difference Where Cool Meets Comfort.</p>
         </div>
     </header>
 

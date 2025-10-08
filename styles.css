@@ -1,5 +1,12 @@
 @import "dist/styles.css";
 
+#logoimg
+{
+  max-width: 80%;
+  height: auto;
+  color: #ffffff;
+}
+
 #hero-title {
     font-family: Jetbrains Mono;
     font-size: 3rem;
