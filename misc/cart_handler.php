@@ -80,17 +80,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cart_item'])) {
 }
 
 #Proceed to Checkout
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout']))
-{
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['checkout'])) {
     #$checkout = filter_input(INPUT_POST, 'checkout', FILTER_SANITIZE_SPECIAL_CHARS);
     $checkout = true;
     $query = "TRUNCATE TABLE cart";
-    if(mysqli_query($conn, $query) && $checkout)
-    {
+    if (mysqli_query($conn, $query) && $checkout) {
         echo "<script>alert(\"Thank you for shopping with us!\")</script>";
-    }
-    else
-    {
+    } else {
         echo "<script>Something went wrong!</script>";
     }
 }
@@ -99,24 +95,69 @@ function showCart()
 {
     global $conn;
 
-    $query = "SELECT * FROM cart";
-    $result = mysqli_query($conn, $query);
+    $count = "SELECT COUNT(*) as counted FROM cart;";
+    $countres = mysqli_query($conn, $count);
+    $countrow = mysqli_fetch_assoc($countres);
+    $counted = $countrow['counted'];
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $prod_name = $row['prod_name'];
-        $price = $row['price'];
-        $amount = $row['quantity'];
-        echo "<tr>
-                <td>{$prod_name}</td>
-                <td class=\"price\" data-price=\"{$price}\">\${$price}.00</td>
-                <td><input type=\"number\" class=\"form-control w-50 mx-auto qty\" value=\"{$amount}\" min=\"1\"></td>
-                <td class=\"total\">$/{$price}.00</td>
-                <td>
-                    <form action=\"cart.php\" method=\"post\">
-                        <input type=\"hidden\" name=\"cart_item\" value=\"{$prod_name}\">
-                        <button type=\"submit\" class=\"btn btn-danger btn-sm\">Remove</button>
+    if ($counted == 0)
+    {
+        $html = <<<HTML
+            <h1 class="h1 text-center">You have no items in your cart!</h1>
+            <br>
+            <img class="mx-auto d-block" src="img/empty-cart.png" alt="no items" height=100>
+        HTML;
+        echo $html;
+    }
+    else
+    {
+        $query = "SELECT * FROM cart";
+        $result = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+            $prod_name = $row['prod_name'];
+            $price = $row['price'];
+            $amount = $row['quantity'];
+
+            $html = <<<HTML
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle text-center">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{$prod_name}</td>
+                                    <td class="price" data-price="$price">\${$price}.00</td>
+                                    <td><input type="number" class="form-control w-50 mx-auto qty" value="$amount" min="1"></td>
+                                    <td class="total">\${$price}.00</td>
+                                    <td>
+                                        <form action="cart.php" method="post">
+                                            <input type="hidden" name="cart_item" value="$prod_name">
+                                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                        </form>
+                                    </td>
+                                </tr>            
+                            </tbody>
+                    </table>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="text-end mt-4">
+                    <h4 id="cart-total">Total: $0.00</h4>
+                    <form action="cart.php" method="post">
+                        <input type="hidden" name="checkout" value="checkout">
+                        <button type="submit" class="btn btn-success"> Proceed to Checkout</button>
                     </form>
-                </td>
-              </tr>";
+                </div>
+                HTML;
+            
+                echo $html;
+       }
     }
 }

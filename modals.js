@@ -83,4 +83,30 @@ $(function () {
     const valid = /^[a-zA-Z0-9_]+$/;
     if (!valid.test(key)) e.preventDefault();
   });
+
+  //Contact Form Validation:
+  $("#contact").validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 5,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      message: {
+        required: true,
+      },
+    },
+    messages: {
+      name: "Please enter at least 3 characters",
+      email: "Please enter a valid email!",
+      message: "Error!",
+    },
+    submitHandler: function (form) {
+      alert("Thank you for sharing your thoughts with us!");
+      e.preventDefault();
+    },
+  })
 });

@@ -67,18 +67,18 @@ include "misc/database.php";
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form class="card p-4 shadow-sm">
+                    <form class="card p-4 shadow-sm" id="contact">
                         <div class="mb-3">
                             <label for="name" class="form-label">Your Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Your Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email">
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="5"
+                            <textarea class="form-control" name="messages" id="message" rows="5"
                                 placeholder="Type your message here..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
@@ -116,7 +116,7 @@ include "misc/database.php";
 
 
     <!-- FOOTER -->
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="footer bg-dark text-white text-center py-3">
         <p class="mb-0">© 2025 E-Shop | Designed for demo purposes</p>
     </footer>
     <script src="bootstrap.bundle.min.js"></script>

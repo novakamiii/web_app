@@ -65,33 +65,9 @@ include "misc/cart_handler.php";
     <!-- CART CONTENT -->
     <section class="py-5">
         <div class="container">
-            <div class="table-responsive">
-                <table class="table table-bordered align-middle text-center">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        showCart();
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Cart Summary -->
-            <div class="text-end mt-4">
-                <h4 id="cart-total">Total: $0.00</h4>
-                <form action="cart.php" method="post">
-                    <input type="hidden" name="checkout" value="checkout">
-                    <button type="submit" class="btn btn-success"> Proceed to Checkout</button>
-                </form>
-            </div>
+            <?php
+                 showCart();
+            ?> 
         </div>
     </section>
 
@@ -123,7 +99,7 @@ include "misc/cart_handler.php";
   </div>
 
     <!-- FOOTER -->
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="footer fixed-bottom bg-dark text-white text-center py-3">
         <p class="mb-0">© 2025 E-Shop | Designed for demo purposes</p>
     </footer>
     <script src="bootstrap.bundle.min.js"></script>
@@ -132,6 +108,8 @@ include "misc/cart_handler.php";
 
 </html>
 
+
+<!--Vanilla JS -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const rows = document.querySelectorAll("table tbody tr");
