@@ -95,14 +95,14 @@ $(function () {
         required: true,
         email: true,
       },
-      message: {
+      messages: {
         required: true,
       },
     },
     messages: {
       name: "Please enter at least 3 characters",
       email: "Please enter a valid email!",
-      message: "Error!",
+      messages: "Please input something!",
     },
     submitHandler: function (form) {
       alert("Thank you for sharing your thoughts with us!");
