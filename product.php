@@ -58,10 +58,10 @@ include "misc/prod_page.php";
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Search Form -->
-                <form class="d-flex" action="search.php" method="GET">
-                    <input class="form-control me-2" type="search" name="search_query" placeholder="Search products..." aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
+            <form class="d-flex" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" name="search_query" placeholder="Search products..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto me-3">
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
@@ -78,34 +78,34 @@ include "misc/prod_page.php";
     <!-- PRODUCT DETAIL -->
     <div class="container my-5">
         <?php
-            echo prodDetails();
+        echo prodDetails();
         ?>
     </div>
     <!-- LOGIN MODAL -->
     <div id="loginModal" class="modal-overlay">
-    <div class="modal-box">
-        <h2>Login</h2>
-        <form id="loginForm">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-        </form>
-        <p>No account yet? <a href="#" id="openSignup">Sign up here</a></p>
-    </div>
+        <div class="modal-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>No account yet? <a href="#" id="openSignup">Sign up here</a></p>
+        </div>
     </div>
 
     <!-- SIGNUP MODAL -->
     <div id="signupModal" class="modal-overlay">
-    <div class="modal-box">
-        <h2>Sign Up</h2>
-        <form id="signupForm">
-        <input type="text" id="username" name="username" placeholder="Username" required>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <input type="password" id="retypePassword" name="retypePassword" placeholder="Retype Password" required>
-        <button type="submit">Create Account</button>
-        </form>
-        <p><a href="#" id="backToLogin">Back to Login</a></p>
-    </div>
+        <div class="modal-box">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="retypePassword" name="retypePassword" placeholder="Retype Password" required>
+                <button type="submit">Create Account</button>
+            </form>
+            <p><a href="#" id="backToLogin">Back to Login</a></p>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -114,7 +114,6 @@ include "misc/prod_page.php";
     </footer>
 
 </body>
-
 </html>
 
 <?php mysqli_close($conn); ?>

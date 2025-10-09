@@ -19,6 +19,24 @@
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.538);
 }
+
+.img-zoom-limit {
+  width: 100%;
+  height: 250px;              /* fixed visual height */
+  object-fit: cover;          /* zooms/crops slightly to fill the frame */
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+.card {
+  height: 100%;               /* ensures equal height in the row */
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
 /* ===============================
    GLOBAL TYPOGRAPHY
    =============================== */

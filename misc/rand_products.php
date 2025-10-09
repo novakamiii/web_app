@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS (comment out to see plain HTML) -->
     <link href="styles.css" rel="stylesheet">
 </head>
+
 </html>
 
 <?php
@@ -43,17 +44,17 @@ function featuredPage()
         $img = $row['img'];
 
         echo "<div class=\"col-md-4 mb-4\">
-                <div class=\"card h-100\">
+                <div class=\"card h-100 shadow-sm\">
                     <!-- Placeholder product image -->
                     <img src=\"img/products/{$img}.jpg\"
-                        class=\"card-img-top product-img\"
+                        class=\"img-zoom-limit\"
                         alt=\"{$prod_name}\">
 
                     <div class=\"card-body d-flex flex-column\">
-                        <h5 class=\"card-title\">{$prod_name}</h5>
-                        <p class=\"card-text text-truncate\">{$info}</p>
-                        <p class=\"fw-bold mt-auto\">\${$price}</p>
-                        <p class=\"text-muted\">Stock:{$stock}</p>
+                        <h5 class=\"fw-bold fs-3\">{$prod_name}</h5>
+                        <p class=\"fs-5 text-truncate\">{$info}</p>
+                        <p class=\"fw-bold fs-5\">\${$price}</p>
+                        <p class=\"text-muted fs-6\">Stock:{$stock}</p>
                         <a href=\"product.php?id={$id}\" class=\" btn btn-primary w-100 mt-2\">View Details</a>
                     </div>
                 </div>
@@ -85,24 +86,46 @@ function allProducts()
             $stock = $row['stock'];
             $img = $row['img'];
 
-            echo "<div class=\"col-md-4 mb-4\">
-                <div class=\"card h-100\">
-                    <!-- Placeholder product image -->
-                    <img src=\"img/products/{$img}.jpg\"
-                        class=\"card-img-top product-img\"
-                        alt=\"{$prod_name}\">
 
-                    <div class=\"card-body d-flex flex-column\">
-                        <h5 class=\"card-title\">{$prod_name}</h5>
-                        <p class=\"card-text text-truncate\">{$info}</p>
-                        <p class=\"fw-bold mt-auto\">\${$price}</p>
-                        <p class=\"text-muted\">Stock:{$stock}</p>
-                        <a href=\"product.php?id={$id}\"class=\" btn btn-primary w-100 mt-2\">View Details</a>
+            $html = <<<HTML
+                <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <!-- Placeholder product image -->
+                    <img src="img/products/{$img}.jpg"
+                        class="img-zoom-limit"
+                        alt="{$prod_name}">
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="fw-bold fs-3">{$prod_name}</h5>
+                        <p class="fs-5 text-truncate">{$info}</p>
+                        <p class="fw-bold fs-5">\${$price}</p>
+                        <p class="text-muted fs-6">Stock:{$stock}</p>
+                        <a href="product.php?id={$id}" class=" btn btn-primary w-100 mt-2">View Details</a>
                     </div>
                 </div>
-            </div>";
+            </div>
+            HTML;
+
+            // echo "<div class=\"col-md-4 mb-4\">
+            //     <div class=\"card h-100\">
+            //         <!-- Placeholder product image -->
+            //         <img src=\"img/products/{$img}.jpg\"
+            //             class=\"card-img-top product-img\"
+            //             alt=\"{$prod_name}\">
+
+            //         <div class=\"card-body d-flex flex-column\">
+            //             <h5 class=\"card-title\">{$prod_name}</h5>
+            //             <p class=\"card-text text-truncate\">{$info}</p>
+            //             <p class=\"fw-bold mt-auto\">\${$price}</p>
+            //             <p class=\"text-muted\">Stock:{$stock}</p>
+            //             <a href=\"product.php?id={$id}\"class=\" btn btn-primary w-100 mt-2\">View Details</a>
+            //         </div>
+            //     </div>
+            // </div>";
+
+            echo $html;
         }
     }
-    echo "</div>";
+    echo "</div></div>";
 }
 ?>

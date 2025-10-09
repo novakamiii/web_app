@@ -68,9 +68,30 @@ include "misc/cart_handler.php";
     <!-- CART CONTENT -->
     <section class="py-5">
         <div class="container">
-            <?php
-                 showCart();
-            ?> 
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle text-center">
+                    <thead class="table-dark">
+                        <tr class="cart">
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <?php
+                                showCart();
+                            ?>
+                        </tbody> 
+                </table>
+            </div>
+                <?php
+                    if (getCartCount() != 0)
+                    {
+                        showCartTotal();
+                    } 
+                ?>
         </div>
     </section>
 
