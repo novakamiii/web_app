@@ -29,7 +29,7 @@ CREATE TABLE `cart` (
   `quantity` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,8 @@ CREATE TABLE `cart` (
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
 set autocommit=0;
+INSERT INTO `cart` VALUES
+(3,'WhisperBreeze Floor Unit',1,800);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -69,18 +71,18 @@ LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `products` VALUES
-(1,'AeroSense Pro',18,18,'An intelligent, wall-mounted unit that uses advanced AI to learn your preferences and optimize cooling, humidity, and airflow based on real-time environmental data and your daily schedule. It even predicts heatwaves!','aerosense'),
-(2,'WhisperBreeze Floor Unit',67,67,'A sleek, minimalist floor-standing air conditioner designed for ultra-quiet operation. Perfect for bedrooms and offices, it delivers a gentle, consistent cool without any distracting noise, featuring a subtle, ambient light strip.','whisperbreeze'),
-(3,'EcoChill Smart Vent',22,22,'Individual smart vents that can be retrofitted into existing ductwork. Each vent has its own sensor and can be controlled independently via an app, allowing for zone-specific cooling and energy saving by only cooling occupied rooms.','ecochill'),
-(4,'Solar-Powered SunCooler Portable AC',200,200,'A truly off-grid portable air conditioning unit powered entirely by integrated solar panels. Ideal for camping, outdoor events, or emergency cooling, it\'s rugged, lightweight, and completely wireless.','suncooler'),
-(5,'HydroFlow Misting Fan and Cooler',75,75,'A hybrid device that combines a powerful fan with a fine-mist humidifier/cooler. It uses a small amount of water to create an evaporative cooling effect, perfect for semi-outdoor spaces like patios or garages.','hydroflow'),
-(6,'BioFilter Air Purifying AC',60,60,'An air conditioner with an integrated, self-cleaning bio-filtration system that actively neutralizes allergens, viruses, and bacteria, not just traps them. It even releases beneficial negative ions for improved air quality.','biofilter'),
-(7,'Modular Climate Panel System',90,90,'Instead of a single unit, this system uses multiple thin, interconnected panels that can be arranged on walls or ceilings to provide customizable, distributed cooling across a room, blending seamlessly with decor.','modular'),
-(8,'Deep Sleep Smart AC Mattress Topper',35,35,'A mattress topper with embedded micro-cooling channels that circulate temperature-regulated air or liquid, providing personalized cooling directly to your bed, ensuring optimal sleep temperature without cooling the whole room.','matress'),
-(9,'AuraSync Ambient Light and Air System',50,50,' A ceiling-mounted system that integrates ambient lighting with discreet air conditioning. The light changes color to indicate temperature and air quality, and the cooling is delivered via imperceptible micro-perforations in the panel.','aurasync'),
-(10,'Personal Pocket Breeze Device',40,40,'A wearable, miniature thermoelectric cooling device that provides a localized cool sensation to your pulse points or neck, ideal for personal comfort in warm environments without affecting others.','pocketbreeze'),
-(11,'AirSculpt Directional Flow Unit',30,30,'An innovative AC unit that allows users to precisely \"sculpt\" and direct the airflow using a touch interface or gestures, creating specific cool zones within a larger space without impacting other areas.','airsculpt'),
-(12,'GeoThermal Home Hub',22,22,'A compact, residential-scale geothermal heat pump system designed for easy installation, offering hyper-efficient heating and cooling by leveraging the stable temperature of the earth. It\'s the ultimate sustainable climate control.','geothermal');
+(1,'AeroSense Pro',1000,18,'An intelligent, wall-mounted unit that uses advanced AI to learn your preferences and optimize cooling, humidity, and airflow based on real-time environmental data and your daily schedule. It even predicts heatwaves!','aerosense'),
+(2,'WhisperBreeze Floor Unit',800,67,'A sleek, minimalist floor-standing air conditioner designed for ultra-quiet operation. Perfect for bedrooms and offices, it delivers a gentle, consistent cool without any distracting noise, featuring a subtle, ambient light strip.','whisperbreeze'),
+(3,'EcoChill Smart Vent',2300,22,'Individual smart vents that can be retrofitted into existing ductwork. Each vent has its own sensor and can be controlled independently via an app, allowing for zone-specific cooling and energy saving by only cooling occupied rooms.','ecochill'),
+(4,'Solar-Powered SunCooler Portable AC',600,200,'A truly off-grid portable air conditioning unit powered entirely by integrated solar panels. Ideal for camping, outdoor events, or emergency cooling, it\'s rugged, lightweight, and completely wireless.','suncooler'),
+(5,'HydroFlow Misting Fan and Cooler',300,75,'A hybrid device that combines a powerful fan with a fine-mist humidifier/cooler. It uses a small amount of water to create an evaporative cooling effect, perfect for semi-outdoor spaces like patios or garages.','hydroflow'),
+(6,'BioFilter Air Purifying AC',1200,60,'An air conditioner with an integrated, self-cleaning bio-filtration system that actively neutralizes allergens, viruses, and bacteria, not just traps them. It even releases beneficial negative ions for improved air quality.','biofilter'),
+(7,'Modular Climate Panel System',3400,90,'Instead of a single unit, this system uses multiple thin, interconnected panels that can be arranged on walls or ceilings to provide customizable, distributed cooling across a room, blending seamlessly with decor.','modular'),
+(8,'Deep Sleep Smart AC Mattress Topper',900,35,'A mattress topper with embedded micro-cooling channels that circulate temperature-regulated air or liquid, providing personalized cooling directly to your bed, ensuring optimal sleep temperature without cooling the whole room.','matress'),
+(9,'AuraSync Ambient Light and Air System',3200,50,' A ceiling-mounted system that integrates ambient lighting with discreet air conditioning. The light changes color to indicate temperature and air quality, and the cooling is delivered via imperceptible micro-perforations in the panel.','aurasync'),
+(10,'Personal Pocket Breeze Device',120,40,'A wearable, miniature thermoelectric cooling device that provides a localized cool sensation to your pulse points or neck, ideal for personal comfort in warm environments without affecting others.','pocketbreeze'),
+(11,'AirSculpt Directional Flow Unit',200,30,'An innovative AC unit that allows users to precisely \"sculpt\" and direct the airflow using a touch interface or gestures, creating specific cool zones within a larger space without impacting other areas.','airsculpt'),
+(12,'GeoThermal Home Hub',5000,22,'A compact, residential-scale geothermal heat pump system designed for easy installation, offering hyper-efficient heating and cooling by leveraging the stable temperature of the earth. It\'s the ultimate sustainable climate control.','geothermal');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -130,4 +132,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-10-09 15:28:34
+-- Dump completed on 2025-10-10 15:11:55
