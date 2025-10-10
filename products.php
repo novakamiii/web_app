@@ -51,8 +51,8 @@
     </nav>
 
     <!-- HERO -->
-    <header class="text-center text-white py-5 bg-dark"
-        style="background:url('https://picsum.photos/1200/400?business') center/cover no-repeat;">
+    <header class="text-center text-white py-5 bg-dark hero-bg"
+        style="background:url('img/banner.png') center/cover no-repeat; height:350px;">
         <div class="container">
             <h1 class="display-4" id="hero-title">Products</h1>
             <p class="lead" id="hero-subtitle">List of all our products for your perusal</p>

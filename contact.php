@@ -58,7 +58,7 @@ include "misc/database.php";
 
     <!-- HERO -->
     <header class="text-center text-white py-5 bg-dark"
-        style="background:url('https://picsum.photos/1200/400?contact') center/cover no-repeat;">
+        style="background:url('img/banner-contact.png') center/cover no-repeat; height: 350px;">
         <div class="container">
             <h1 class="display-4" id="hero-title">Contact Us</h1>
             <p class="lead" id="hero-subtitle">We’d love to receive feedback from you. Send us a message!</p>

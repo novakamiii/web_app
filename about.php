@@ -56,9 +56,9 @@ include "misc/database.php";
 
     <!-- HERO -->
     <header class="text-center text-white py-5 bg-dark"
-        style="background:url('https://picsum.photos/1200/400?office') center/cover no-repeat;">
+        style="background:url('img/banner-about.png') center/cover no-repeat; height:350px">
         <div class="container">
-            <h1 class="display-4" id="hero-title">About E-Shop</h1>
+            <h1 class="display-4" id="hero-title">About Arctic</h1>
             <p class="lead" id="hero-subtitle">Learn more about our story, mission, and team</p>
         </div>
     </header>
@@ -110,7 +110,7 @@ include "misc/database.php";
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4">
                     <div class="card h-100 text-center shadow-sm">
-                        <img src="https://scontent.fmnl33-6.fna.fbcdn.net/v/t39.30808-1/469444377_3926434597636182_6161249111952600436_n.jpg?stp=c0.92.1536.1536a_dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeH2uFv901h7oCNIK5vKhXMyKkjZHl6LGVMqSNkeXosZU9D8mRlAeS8GzdzPJFUlvBJMdvZbXd4sZyzlvio_S6o6&_nc_ohc=8pJTeSCPCucQ7kNvwFjN8fa&_nc_oc=AdlL9isS8r0hwIR1ELoDqvYplS-k5tMaw7PNVa4wo6b5rg8yZ4mFWGfa6BJaKhIqh88&_nc_zt=24&_nc_ht=scontent.fmnl33-6.fna&_nc_gid=3RiNylo92Sl-_Tyq2_n-rw&oh=00_AfZxiBYaQo9gS8aIBUBX60tK7zn_NpPDWO-xT5g1M3_mIQ&oe=68E4A0C6" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
+                        <img src="https://scontent.fmnl3-1.fna.fbcdn.net/v/t39.30808-1/469444377_3926434597636182_6161249111952600436_n.jpg?stp=c0.92.1536.1536a_dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeH2uFv901h7oCNIK5vKhXMyKkjZHl6LGVMqSNkeXosZU9D8mRlAeS8GzdzPJFUlvBJMdvZbXd4sZyzlvio_S6o6&_nc_ohc=QOC0BwrVLSQQ7kNvwEu6EG_&_nc_oc=Adm9bvchli6Ld_BFxfk31sV3ej3lJe2kXhp_JSe-Hnki6Epry9PDb9GRdHqu7G5559o&_nc_zt=24&_nc_ht=scontent.fmnl3-1.fna&_nc_gid=v51KkPMoLiRP_zbR1q7Tig&oh=00_AfdZzoCOUGcJyo1xjh9Aj36x0TIEic3M8NhyBaTjrQtI7w&oe=68EE4BC6" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
                         <div class="card-body">
                             <h5 class="card-title">Paulo Neil Sevilla</h5>
                             <p class="card-text">Co-founder</p>
@@ -120,7 +120,7 @@ include "misc/database.php";
 
                 <div class="col-md-4">
                     <div class="card h-100 text-center shadow-sm">
-                        <img src="https://scontent.fmnl33-4.fna.fbcdn.net/v/t39.30808-6/504933616_4108181266122725_3134125291306324547_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGpIEtukLceaUIDhAcouY1A5zf8aPoi1CjnN_xo-iLUKBjqHrERdj0Skid0DWzx4WVhXXjExIfnBMmFcEwmGlWn&_nc_ohc=Ye28uOShC9UQ7kNvwEgayzo&_nc_oc=Admv6-bNvvnHAcjpd4YbtpCW1oeSHkyvXLnS1y03Zqw4srjFro69Lg3vHCKn-veobA0&_nc_zt=23&_nc_ht=scontent.fmnl33-4.fna&_nc_gid=kfHngUXcISKkim2AHBpq0Q&oh=00_AfYw32zyc9YQmGjiRP-HnbGfnQNZaQcc-k-ytZ-dcYU_fA&oe=68E4B447" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
+                        <img src="https://scontent.fmnl37-1.fna.fbcdn.net/v/t39.30808-6/504933616_4108181266122725_3134125291306324547_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=106&ccb=1-7&_nc_sid=fe5ecc&_nc_eui2=AeGpIEtukLceaUIDhAcouY1A5zf8aPoi1CjnN_xo-iLUKBjqHrERdj0Skid0DWzx4WVhXXjExIfnBMmFcEwmGlWn&_nc_ohc=t5xqH05tQOsQ7kNvwH9OVQo&_nc_oc=AdmP7piZTqqVJQSlxJnJ_dixBVOv5NuOd2Jei5pS4DN-02tHDHd_vi7D8r9YLiYEHk8&_nc_zt=23&_nc_ht=scontent.fmnl37-1.fna&_nc_gid=a7C_aHh8JV14jim9rrFAbg&oh=00_Affq4YmhkWUhwDbQuJphLzEKOzLe3ufYWiLavHAuUqZFmw&oe=68EE5F47" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px; height:120px;" alt="Team Member">
                         <div class="card-body">
                             <h5 class="card-title">Danzel Bordeos</h5>
                             <p class="card-text">Co-founder</p>

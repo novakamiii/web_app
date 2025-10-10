@@ -58,7 +58,7 @@ include "misc/cart_handler.php";
 
     <!-- HERO -->
     <header class="text-center text-white py-5 bg-dark"
-        style="background:url('https://picsum.photos/1200/400?cart') center/cover no-repeat;">
+        style="background:url('img/banner-cart.png') center/cover no-repeat; height: 350px;">
         <div class="container">
             <h1 class="display-4" id="hero-title">Your Shopping Cart</h1>
             <p class="lead" id="hero-subtitle">Review and manage your selected products</p>
@@ -123,7 +123,7 @@ include "misc/cart_handler.php";
   </div>
 
     <!-- FOOTER -->
-    <footer class="footer fixed-bottom bg-dark text-white text-center py-3">
+    <footer class="footer bottom bg-dark text-white text-center py-3">
         <p class="mb-0">© 2025 E-Shop | Designed for demo purposes</p>
     </footer>
     <script src="bootstrap.bundle.min.js"></script>

@@ -55,7 +55,7 @@
 
     <!-- HERO -->
     <header class="text-center text-white py-5 bg-dark"
-        style="background:url('https://picsum.photos/1200/400?business') center/cover no-repeat;">
+        style="background:url('img/banner.png') center/cover no-repeat; height: 350px">
         <div class="container">
             <h1 class="display-4" id="hero-title">Arctic Wind Solutions</h1>
             <p class="lead" id="hero-subtitle">Experience the Arctic Difference Where Cool Meets Comfort.</p>
