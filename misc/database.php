@@ -1,14 +1,12 @@
 <?php
-    #Uncomment your credentials if needed.
-    $db_server = "localhost:3306"; //nova
-    #$db_server = "localhost";
+    #Example Credentials
+    $db_server = "localhost:3306";
     $db_user = "root";
-    
-    #$db_pass = 'root'; //reizu
-    #$db_name = 'testphp'; //reizu
+    $db_pass = 'paulo'; 
+    $db_name = "testPHP";
 
-    $db_pass = 'paulo'; //nova 
-    $db_name = "testPHP"; //nova
+    
+    #Keep this empty
     $conn = "";
 
     try {

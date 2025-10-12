@@ -1,4 +1,80 @@
-For Web Development - PUP-SPC 3-1
+# E-Shop (Demo)
 
-Paulo Neil Sevilla
-Danzel Bordeos
+> A small demo e-commerce web app used for the Web Development course (PUP‑SPC 3-1).
+
+This repository contains a lightweight PHP/MySQL storefront used to demonstrate basic product listing, product details, and cart interactions. It uses Bootstrap for layout and simple client-side scripts for UI behaviors.
+
+## Contributors
+
+- Paulo Neil Sevilla
+- Danzel Bordeos
+
+## Features
+
+- Product listing and featured products
+- Product detail page with image, price, stock, and description
+- Simple cart action (adds via a URL parameter)
+- Bootstrap-based responsive UI
+
+## Prerequisites
+
+- PHP 7.4+ with mysqli extension
+- MySQL / MariaDB / MySQL Server in XAMPP
+- A web server or the built-in PHP server / XAMPP (Apache Server)
+- (Optional) npm to install local copies of Bootstrap and jQuery used in the project
+
+## Quick start
+
+1. Import the database
+
+	- Locate the SQL dump file (usually provided alongside this repository) and import it into your MySQL server.
+
+2. Update database credentials
+
+	- Open `misc/database.php` and edit the MySQL credentials (host, username, password, database) to match your environment.
+
+3. (Optional) Install frontend deps
+
+	- This project references local `node_modules` for Bootstrap and jQuery. To install them locally run:
+
+```bash
+npm install
+```
+
+	- If you prefer not to use npm, the app will still work if you swap those references to CDN links in the pages.
+
+4. Run the app locally
+
+```bash
+# From the repository root
+# Use PHP's built-in server on port 8088
+php -S localhost:8088
+
+# Then open http://localhost:8088 in your browser
+```
+
+### XAMPP users
+
+If you prefer using XAMPP (Apache + MySQL), follow these steps instead of the PHP built-in server:
+
+1. Copy the project folder into XAMPP's `htdocs` directory (for example: `C:\xampp\htdocs\e-shop` or `/opt/lampp/htdocs/e-shop`).
+2. Start Apache and MySQL from the XAMPP control panel or for Linux use the CLI method for XAMPP.
+3. Import the SQL dump using phpMyAdmin (http://localhost/phpmyadmin) or the `mysql` CLI into a database you create.
+4. Update `misc/database.php` with your XAMPP MySQL credentials (default user is `root` and password is often empty on local XAMPP installs).
+5. Open the app in your browser at `http://localhost/e-shop` (replace `e-shop` with the folder name you used).
+
+
+## Database notes
+
+- After importing the SQL dump, update `misc/database.php` with your DB credentials.
+- The code currently uses simple `mysqli` queries.
+
+## Project structure (important files)
+
+- `index.php` — Home / landing page
+- `products.php` — Product listing page
+- `product.php` — Product detail page (reads `id` from query string)
+- `cart.php` — Simple cart actions
+- `misc/database.php` — Database connection (update credentials here)
+- `misc/rand_products.php` — Helpers for featured/random products
+- `styles.css` — Project CSS (includes Bootstrap customizations)

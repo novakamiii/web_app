@@ -32,6 +32,8 @@ $total_cart_num = $row2['total'];
 //     }
 // }
 
+
+//Add to cart
 if (isset($_GET['action']) && $_GET['action'] === 'add' && isset($_GET['id'])) {
     $id = intval($_GET['id']); // sanitize input
 
