@@ -35,6 +35,7 @@ function featuredPage()
     echo "<h2 class=\"text-center mb-4\">Featured Products</h2>";
     echo "<div class=\"row g-4\">";
 
+    //this code is ass.
     while ($row = mysqli_fetch_assoc($result)) {
         $prod_name = $row['prod_name'];
         $price = number_format($row['price'], 2);

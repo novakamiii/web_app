@@ -36,8 +36,6 @@ function prodDetails ()
                     <p>$prodInfo</p>
 
                     <div class="d-flex gap-3 mt-3">
-                        <a href="cart.php?action=add&id=$prodID"
-                            class="btn btn-primary btn-lg">Add to Cart</a>
                     </div>
                 </div>
             </div>
